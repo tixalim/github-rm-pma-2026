@@ -1,44 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<!-- ScrollView, aby se obsah vešel i na šířku / na malý displej -->
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llMain"
+    android:id="@+id/svRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:background="#94A87B"
+    android:fillViewport="true"
+    android:background="#DFE1ED"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hod Kostkou"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvDice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="⚀"
-        android:textSize="120dp" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hod kostkou"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#2E3350" />
 
-    <Button
-        android:id="@+id/btnRoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hodit"
-        android:textSize="24dp"
-        android:textColor="#000"
-        android:backgroundTint="#EBC15E"
-        />
+        <!-- Body: zobrazí se až po stisknutí Hrát -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="8dp"
+                android:text="Body: 100"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#848EBF" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Úvodní tlačítko (a po prohře "Hrát znovu") -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="40dp"
+            android:text="Hrát"
+            android:textSize="22sp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#848EBF"
+            app:cornerRadius="16dp" />
+
+        <!-- Sázení -->
+        <LinearLayout
+            android:id="@+id/llBetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Na co sázíš?"
+                android:textSize="16sp"
+                android:textColor="#2E3350" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/tgParity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEven"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sudé"
+                    android:textSize="18sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOdd"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Liché"
+                    android:textSize="18sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Kolik vsadíš?"
+                android:textSize="16sp"
+                android:textColor="#2E3350" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/tgBet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBet20"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="20"
+                    android:textSize="16sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBet50"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="50"
+                    android:textSize="16sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBet100"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100"
+                    android:textSize="16sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBet200"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="200"
+                    android:textSize="16sp"
+                    app:strokeColor="#848EBF"
+                    app:cornerRadius="16dp" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:enabled="false"
+                android:text="Potvrdit sázku"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#848EBF"
+                app:cornerRadius="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="⚀"
+            android:textSize="120sp"
+            android:textColor="#2E3350"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="40dp"
+            android:text="Hodit"
+            android:textSize="22sp"
+            android:textColor="#2E3350"
+            app:backgroundTint="#8EBF84"
+            app:cornerRadius="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#2E3350"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
