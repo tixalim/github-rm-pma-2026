@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+<TextView
+    android:id="@+id/tvHeaderTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Objednávka šperků"
+    android:textSize="24sp"
+    android:textAlignment="center"
+    android:layout_marginBottom="16dp"
+    />
+
+    <TextView
+        android:id="@+id/tvOrderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jaký náramek si vyberete?"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="16dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgSperk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbSperk1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Srdce"
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/rbSperk2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nekonečno"
+            />
+
+        <RadioButton
+            android:id="@+id/rbSperk3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strom" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cbBTN1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+    <CheckBox
+        android:id="@+id/cbBTN2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+    <CheckBox
+        android:id="@+id/cbBTN3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        />
+
+    <Button
+        android:id="@+id/btnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/myview_order"
+        />
+
+    <TextView
+        android:id="@+id/tvOrder"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/myview_order_summary"
+        android:background="FFF59D"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        />
+
+    <ImageView
+        android:id="@+id/ivSperk"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/sperk_1"
+        android:scaleType="centerCrop"
+        />
+
+
+
+
+
+
+</LinearLayout>
