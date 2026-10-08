@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyApp03_objednavka_sperky</string>
+    <string name="myview_order_summary">Souhrn objednavky</string>
+    <string name="myview_order">Objednat</string>
+</resources>
