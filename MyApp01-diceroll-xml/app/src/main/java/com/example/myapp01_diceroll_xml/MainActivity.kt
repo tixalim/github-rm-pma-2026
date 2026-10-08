@@ -4,7 +4,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private enum class Phase { START, BETTING, CONFIRMED, GAME_OVER }
 
     private val diceSymbols = listOf("⚀", "⚁", "⚂", "⚃", "⚄", "⚅")
-    private val startPoints = 100
+    private val startPoints = 200
 
     // Stav hry (ukládá se při otočení telefonu)
     private var phase = Phase.START
@@ -42,9 +41,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvPoints: TextView
     private lateinit var tvDice: TextView
     private lateinit var tvResult: TextView
-    private lateinit var btnPlay: Button
-    private lateinit var btnConfirm: Button
-    private lateinit var btnRoll: Button
+    private lateinit var btnPlay: MaterialButton
+    private lateinit var btnConfirm: MaterialButton
+    private lateinit var btnRoll: MaterialButton
+    private lateinit var btnRestart: MaterialButton
     private lateinit var llBetting: LinearLayout
     private lateinit var tgParity: MaterialButtonToggleGroup
     private lateinit var tgBet: MaterialButtonToggleGroup
@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         btnPlay = findViewById(R.id.btnPlay)
         btnConfirm = findViewById(R.id.btnConfirm)
         btnRoll = findViewById(R.id.btnRoll)
+        btnRestart = findViewById(R.id.btnRestart)
         llBetting = findViewById(R.id.llBetting)
         tgParity = findViewById(R.id.tgParity)
         tgBet = findViewById(R.id.tgBet)
@@ -100,14 +101,8 @@ class MainActivity : AppCompatActivity() {
         tgParity.addOnButtonCheckedListener { _, _, _ -> updateConfirmButton() }
         tgBet.addOnButtonCheckedListener { _, _, _ -> updateConfirmButton() }
 
-        btnPlay.setOnClickListener {
-            points = startPoints
-            resultText = ""
-            tgParity.clearChecked()
-            tgBet.clearChecked()
-            phase = Phase.BETTING
-            render()
-        }
+        btnPlay.setOnClickListener { startNewGame() }
+        btnRestart.setOnClickListener { startNewGame() }
 
         btnConfirm.setOnClickListener {
             phase = Phase.CONFIRMED
@@ -146,6 +141,15 @@ class MainActivity : AppCompatActivity() {
 
         render()
     }
+    // Nová hra: body zpět na začátek, výběr se vymaže
+    private fun startNewGame() {
+        points = startPoints
+        resultText = ""
+        tgParity.clearChecked()
+        tgBet.clearChecked()
+        phase = Phase.BETTING
+        render()
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -163,11 +167,11 @@ class MainActivity : AppCompatActivity() {
         tvDice.text = diceSymbols[diceValue - 1]
         tvResult.text = resultText
         btnRoll.isEnabled = true
+        btnRestart.visibility = View.GONE
 
         when (phase) {
             Phase.START -> {
                 cardPoints.visibility = View.GONE
-                btnPlay.text = "Hrát"
                 btnPlay.visibility = View.VISIBLE
                 llBetting.visibility = View.GONE
                 tvDice.visibility = View.GONE
@@ -206,8 +210,8 @@ class MainActivity : AppCompatActivity() {
                 btnRoll.visibility = View.GONE
                 tvResult.text = "$resultText\nDošly ti body, konec hry."
                 tvResult.visibility = View.VISIBLE
-                btnPlay.text = "Hrát znovu"
-                btnPlay.visibility = View.VISIBLE
+                btnPlay.visibility = View.GONE
+                btnRestart.visibility = View.VISIBLE
             }
         }
         updateConfirmButton()
@@ -242,16 +246,23 @@ class MainActivity : AppCompatActivity() {
             arrayOf(disabled, checked, other),
             intArrayOf(colorDisabledText, Color.WHITE, colorPrimary)
         )
-        val toggleButtons = listOf(R.id.btnEven, R.id.btnOdd) + betButtons.keys
-        for (id in toggleButtons) {
-            val button = findViewById<MaterialButton>(id)
+        val toggleButtons = (listOf(R.id.btnEven, R.id.btnOdd) + betButtons.keys)
+            .map { findViewById<MaterialButton>(it) }
+        for (button in toggleButtons) {
             button.backgroundTintList = toggleBg
             button.setTextColor(toggleText)
         }
 
         btnPlay.backgroundTintList = enabledStates(colorPrimary)
         btnConfirm.backgroundTintList = enabledStates(colorPrimary)
+        btnRestart.backgroundTintList = enabledStates(colorPrimary)
         btnRoll.backgroundTintList = enabledStates(colorAccent)
+
+        // Vypnutí "ripple" animace (vlna po kliknutí) u všech tlačítek
+        val noRipple = ColorStateList.valueOf(Color.TRANSPARENT)
+        for (button in toggleButtons + listOf(btnPlay, btnConfirm, btnRoll, btnRestart)) {
+            button.rippleColor = noRipple
+        }
     }
 
     private fun enabledStates(color: Int) = ColorStateList(
