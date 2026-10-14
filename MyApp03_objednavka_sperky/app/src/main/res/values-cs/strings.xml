@@ -13,4 +13,6 @@
     <string name="myview_order">Objednat</string>
     <string name="myview_order_summary">Souhrn objednávky</string>
     <string name="order_summary_prefix">Souhrn objednávky: %1$s</string>
+
+    <string name="price_total">Celková cena: %1$d Kč</string>
 </resources>

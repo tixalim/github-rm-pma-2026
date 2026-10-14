@@ -13,4 +13,6 @@
     <string name="myview_order">Bestellen</string>
     <string name="myview_order_summary">Bestellübersicht</string>
     <string name="order_summary_prefix">Bestellübersicht: %1$s</string>
+
+    <string name="price_total">Gesamtpreis: %1$d CZK</string>
 </resources>
