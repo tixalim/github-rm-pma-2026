@@ -1,0 +1,16 @@
+<resources>
+    <string name="header_title">Schmuckbestellung</string>
+    <string name="order_question">Welches Armband möchten Sie?</string>
+
+    <string name="bracelet_heart">Herz</string>
+    <string name="bracelet_infinity">Unendlichkeit</string>
+    <string name="bracelet_tree">Baum</string>
+
+    <string name="extra_engraving">Gravur</string>
+    <string name="extra_gift_box">Geschenkbox</string>
+    <string name="extra_long_chain">Verlängerte Kette</string>
+
+    <string name="myview_order">Bestellen</string>
+    <string name="myview_order_summary">Bestellübersicht</string>
+    <string name="order_summary_prefix">Bestellübersicht: %1$s</string>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="header_title">Objednávka šperků</string>
+    <string name="order_question">Jaký náramek si vyberete?</string>
+
+    <string name="bracelet_heart">Srdce</string>
+    <string name="bracelet_infinity">Nekonečno</string>
+    <string name="bracelet_tree">Strom</string>
+
+    <string name="extra_engraving">Gravírování</string>
+    <string name="extra_gift_box">Dárková krabička</string>
+    <string name="extra_long_chain">Prodloužený řetízek</string>
+
+    <string name="myview_order">Objednat</string>
+    <string name="myview_order_summary">Souhrn objednávky</string>
+    <string name="order_summary_prefix">Souhrn objednávky: %1$s</string>
+</resources>

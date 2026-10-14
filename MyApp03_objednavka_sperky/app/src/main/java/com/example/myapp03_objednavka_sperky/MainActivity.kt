@@ -1,7 +1,6 @@
 package com.example.myapp03_objednavka_sperky
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -11,61 +10,51 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //enableEdgeToEdge()
-
-        //binding - nafouknutí (inflate) layoutu do binding instance
+        // binding - nafouknutí (inflate) layoutu do binding instance
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        //nastavení kořenového pohledu (root) do okna aktivity
+        // nastavení kořenového pohledu (root) do okna aktivity
         setContentView(binding.root)
 
-
-        // Ošetření systémových lišt – použije se přímo binding.main nebo binding.root
+        // Ošetření systémových lišt
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Změna obrázku hned při výběru náramku (MIMO tlačítko Objednat)
+        binding.rgSperk.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                binding.rbSperk1.id -> binding.ivSperk.setImageResource(R.drawable.sperk_1)
+                binding.rbSperk2.id -> binding.ivSperk.setImageResource(R.drawable.sperk_2)
+                binding.rbSperk3.id -> binding.ivSperk.setImageResource(R.drawable.sperk_3)
+            }
+        }
+
+        // Tlačítko Objednat - vypíše souhrn objednávky
         binding.btnOrder.setOnClickListener {
             val sperk = when (binding.rgSperk.checkedRadioButtonId) {
                 binding.rbSperk1.id -> binding.rbSperk1
                 binding.rbSperk2.id -> binding.rbSperk2
                 binding.rbSperk3.id -> binding.rbSperk3
-
-                else -> binding.rbSperk1 //záložní možnost
+                else -> binding.rbSperk1 // záložní možnost
             }
 
-            val Srdce = binding.cbBTN1.isChecked
-            val nekonecno = binding.cbBTN2.isChecked
-            val strom = binding.cbBTN3.isChecked
+            // stav doplňků (checkboxů)
+            val doplnek1 = binding.cbBTN1.isChecked
+            val doplnek2 = binding.cbBTN2.isChecked
+            val doplnek3 = binding.cbBTN3.isChecked
 
-            val orderText = "Souhrn objednavky: " + "${sperk.text}" +
-                    (if(Srdce)) "; text a" else "") +
-                    (if(nekonecno)) "; text b" else "") +
-                    (if(strom)) "; text c" else "")
+            val orderText = getString(R.string.order_summary_prefix, sperk.text) +
+                    (if (doplnek1) "; " + binding.cbBTN1.text else "") +
+                    (if (doplnek2) "; " + binding.cbBTN2.text else "") +
+                    (if (doplnek3) "; " + binding.cbBTN3.text else "")
 
             binding.tvOrder.text = orderText
-
-            binding.rbSperk1.setOnClickListener {
-                binding.ivSperk.setImageResource(R.drawable.sperk_1)
-
-            }
-            binding.rbSperk2.setOnClickListener {
-                binding.ivSperk.setImageResource(R.drawable.sperk_2)
-
-            }
-            binding.rbSperk3.setOnClickListener {
-                binding.ivSperk.setImageResource(R.drawable.sperk_3)
-
-            }
-
         }
-
-
     }
 }
