@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">MyApp005ObjednavkaV2</string>
+    <string name="app_name">MyApp03_objednavka_sperky</string>
+
+    <string name="header_title">Jewellery order</string>
+    <string name="order_question">Which bracelet would you like?</string>
+
+    <string name="bracelet_heart">Heart</string>
+    <string name="bracelet_infinity">Infinity</string>
+    <string name="bracelet_tree">Tree</string>
+
+    <string name="extra_engraving">Engraving</string>
+    <string name="extra_gift_box">Gift box</string>
+    <string name="extra_long_chain">Extended chain</string>
+
+    <string name="myview_order">Order</string>
+    <string name="myview_order_summary">Order summary</string>
+    <string name="order_summary_prefix">Order summary: %1$s</string>
+
+    <string name="price_total">Total price: %1$d CZK</string>
 </resources>
