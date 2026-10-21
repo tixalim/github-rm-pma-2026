@@ -1,0 +1,23 @@
+<resources>
+    <string name="header_title">Objednávka šperků</string>
+    <string name="order_question">Jaký náramek si vyberete?</string>
+
+    <string name="bracelet_heart">Srdce</string>
+    <string name="bracelet_infinity">Nekonečno</string>
+    <string name="bracelet_tree">Strom</string>
+
+    <string name="extra_engraving">Gravírování</string>
+    <string name="extra_gift_box">Dárková krabička</string>
+    <string name="extra_long_chain">Prodloužený řetízek</string>
+
+    <string name="myview_order">Objednat</string>
+    <string name="price_total">Celková cena: %1$d Kč</string>
+
+    <string name="summary_header">Rekapitulace objednávky</string>
+    <string name="summary_bracelet">Náramek: %1$s</string>
+    <string name="summary_extras_title">Doplňky:</string>
+    <string name="summary_no_extras">žádné</string>
+    <string name="summary_terms_title">Obchodní podmínky</string>
+    <string name="summary_terms_text">1. ÚVODNÍ USTANOVENÍ\nTyto podmínky upravují objednávky ručně vyráběných šperků prostřednictvím této aplikace.\n\n2. OBJEDNÁVKA\nObjednávka je závazná po stisknutí tlačítka Objednat a jejím potvrzení prodávajícím e-mailem.\n\n3. CENA A PLATBA\nVšechny ceny jsou uvedeny v Kč včetně DPH. Platit lze převodem na účet nebo dobírkou.\n\n4. GRAVÍROVANÉ ZBOŽÍ\nNáramky s gravírováním jsou upraveny podle přání kupujícího, a proto od nich nelze odstoupit ve 14denní lhůtě.\n\n5. DODÁNÍ\nNáramek obvykle odesíláme do 5 pracovních dnů. Zboží s gravírováním může trvat až 10 pracovních dnů.\n\n6. REKLAMACE\nReklamace se vyřizují podle občanského zákoníku do 30 dnů od jejich uplatnění.\n\n7. OSOBNÍ ÚDAJE\nOsobní údaje zpracováváme pouze za účelem vyřízení objednávky v souladu s GDPR.</string>
+    <string name="summary_back">Zpět k úpravě</string>
+</resources>

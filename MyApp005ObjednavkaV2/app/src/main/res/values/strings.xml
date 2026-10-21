@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp03_objednavka_sperky</string>
+    <string name="app_name">MyApp005ObjednavkaV2</string>
 
     <string name="header_title">Jewellery order</string>
     <string name="order_question">Which bracelet would you like?</string>
@@ -13,8 +13,13 @@
     <string name="extra_long_chain">Extended chain</string>
 
     <string name="myview_order">Order</string>
-    <string name="myview_order_summary">Order summary</string>
-    <string name="order_summary_prefix">Order summary: %1$s</string>
-
     <string name="price_total">Total price: %1$d CZK</string>
+
+    <string name="summary_header">Order summary</string>
+    <string name="summary_bracelet">Bracelet: %1$s</string>
+    <string name="summary_extras_title">Extras:</string>
+    <string name="summary_no_extras">none</string>
+    <string name="summary_terms_title">Terms and conditions</string>
+    <string name="summary_terms_text">1. GENERAL\nThese terms govern orders of handmade jewellery placed through this application.\n\n2. ORDER\nThe order is binding once the customer taps the Order button and the seller confirms it by e-mail.\n\n3. PRICE AND PAYMENT\nAll prices are in Czech crowns including VAT. Payment is possible by bank transfer or cash on delivery.\n\n4. ENGRAVED ITEMS\nEngraved bracelets are made to the customer\'s wishes and therefore cannot be returned within the 14 day withdrawal period.\n\n5. DELIVERY\nThe bracelet is usually shipped within 5 working days. Items with engraving may take up to 10 working days.\n\n6. COMPLAINTS\nComplaints are handled in accordance with the Czech Civil Code within 30 days of receipt.\n\n7. PERSONAL DATA\nPersonal data are processed only for the purpose of fulfilling the order, in accordance with the GDPR.</string>
+    <string name="summary_back">Back to editing</string>
 </resources>

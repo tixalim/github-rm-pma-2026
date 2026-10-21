@@ -1,0 +1,23 @@
+<resources>
+    <string name="header_title">Schmuckbestellung</string>
+    <string name="order_question">Welches Armband möchten Sie?</string>
+
+    <string name="bracelet_heart">Herz</string>
+    <string name="bracelet_infinity">Unendlichkeit</string>
+    <string name="bracelet_tree">Baum</string>
+
+    <string name="extra_engraving">Gravur</string>
+    <string name="extra_gift_box">Geschenkbox</string>
+    <string name="extra_long_chain">Verlängerte Kette</string>
+
+    <string name="myview_order">Bestellen</string>
+    <string name="price_total">Gesamtpreis: %1$d CZK</string>
+
+    <string name="summary_header">Bestellübersicht</string>
+    <string name="summary_bracelet">Armband: %1$s</string>
+    <string name="summary_extras_title">Extras:</string>
+    <string name="summary_no_extras">keine</string>
+    <string name="summary_terms_title">Allgemeine Geschäftsbedingungen</string>
+    <string name="summary_terms_text">1. ALLGEMEINES\nDiese Bedingungen gelten für Bestellungen von handgefertigtem Schmuck über diese App.\n\n2. BESTELLUNG\nDie Bestellung ist verbindlich, sobald der Kunde auf Bestellen tippt und der Verkäufer sie per E-Mail bestätigt.\n\n3. PREIS UND ZAHLUNG\nAlle Preise sind in tschechischen Kronen inklusive MwSt. angegeben. Zahlung per Überweisung oder Nachnahme.\n\n4. GRAVIERTE ARTIKEL\nGravierte Armbänder werden nach Kundenwunsch angefertigt und sind daher vom 14-tägigen Widerrufsrecht ausgeschlossen.\n\n5. LIEFERUNG\nDas Armband wird in der Regel innerhalb von 5 Werktagen versandt, mit Gravur bis zu 10 Werktage.\n\n6. REKLAMATIONEN\nReklamationen werden nach tschechischem Recht innerhalb von 30 Tagen bearbeitet.\n\n7. DATENSCHUTZ\nPersonenbezogene Daten werden nur zur Abwicklung der Bestellung gemäß DSGVO verarbeitet.</string>
+    <string name="summary_back">Zurück zur Bearbeitung</string>
+</resources>
