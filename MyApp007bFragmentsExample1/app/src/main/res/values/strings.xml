@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyApp007bFragmentsExample1</string>
+
+    <string name="menu_catalog">Katalog</string>
+    <string name="menu_about">O mně</string>
+
+    <string name="catalog_title">Moje šperky ✨</string>
+    <string name="catalog_hint">Klikni na šperk a uvidíš detail</string>
+
+    <string name="sperk_srdce">Srdce</string>
+    <string name="sperk_nekonecno">Nekonečno</string>
+    <string name="sperk_strom">Strom</string>
+
+    <string name="popis_srdce">Náramek s malým srdíčkem. Hodí se jako dárek pro někoho, koho máš ráda.</string>
+    <string name="popis_nekonecno">Náramek se symbolem nekonečna. Pro přátelství, které nikdy neskončí.</string>
+    <string name="popis_strom">Náramek se stromem života. Ručně dělaný, každý kousek je trochu jiný.</string>
+
+    <string name="cena">%1$d Kč</string>
+    <string name="btn_back">Zpět</string>
+
+    <string name="about_title">O obchodě 💍</string>
+    <string name="about_text">Ahoj! Tohle je malý obchůdek s ručně dělanými náramky. Každý náramek vyrábím sama a doma. Když se ti nějaký líbí, najdeš ho v katalogu.</string>
+</resources>
