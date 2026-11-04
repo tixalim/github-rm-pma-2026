@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyApp006ToastSnackbar</string>
+
+    <string name="title">Toast a Snackbar 🍪</string>
+    <string name="counter">Snědené sušenky: %1$d</string>
+
+    <string name="btn_toast">Ukaž Toast</string>
+    <string name="btn_snackbar">Sníst sušenku</string>
+    <string name="btn_custom_toast">Toast s ikonkou</string>
+
+    <string name="toast_text">Ahoj, já jsem Toast 🍞</string>
+    <string name="snackbar_text">Snědla jsi sušenku!</string>
+    <string name="snackbar_undo">VRÁTIT</string>
+    <string name="custom_toast_text">Toast s vlastní ikonkou ⭐</string>
+</resources>
