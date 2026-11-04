@@ -2,10 +2,13 @@ package com.example.myapp005objednavkav2
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CheckBox
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myapp005objednavkav2.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,15 +40,17 @@ class MainActivity : AppCompatActivity() {
             aktualizujCenu()
         }
 
-        // Změna doplňku -> přepočet ceny
-        binding.cbBTN1.setOnCheckedChangeListener { _, _ -> aktualizujCenu() }
-        binding.cbBTN2.setOnCheckedChangeListener { _, _ -> aktualizujCenu() }
-        binding.cbBTN3.setOnCheckedChangeListener { _, _ -> aktualizujCenu() }
+        // Změna doplňku -> přepočet ceny (+ Snackbar když se odškrtne)
+        binding.cbBTN1.setOnCheckedChangeListener { _, zaskrtnuto -> zmenaDoplnku(binding.cbBTN1, zaskrtnuto) }
+        binding.cbBTN2.setOnCheckedChangeListener { _, zaskrtnuto -> zmenaDoplnku(binding.cbBTN2, zaskrtnuto) }
+        binding.cbBTN3.setOnCheckedChangeListener { _, zaskrtnuto -> zmenaDoplnku(binding.cbBTN3, zaskrtnuto) }
 
         aktualizujCenu()
 
-        // Tlačítko Objednat -> otevře novou aktivitu s rekapitulací
+        // Tlačítko Objednat -> Toast + otevře novou aktivitu s rekapitulací
         binding.btnOrder.setOnClickListener {
+            Toast.makeText(this, getString(R.string.toast_order_sent, spocitejCenu()), Toast.LENGTH_SHORT).show()
+
             val intent = Intent(this, SummaryActivity::class.java)
 
             intent.putExtra("EXTRA_SPERK_NAME", vybranyNaramek().text.toString())
@@ -57,6 +62,19 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("EXTRA_HAS_LONG_CHAIN", binding.cbBTN3.isChecked)
 
             startActivity(intent)
+        }
+    }
+
+    // když se doplněk odškrtne, ukáže se Snackbar s tlačítkem ZPĚT
+    private fun zmenaDoplnku(checkBox: CheckBox, zaskrtnuto: Boolean) {
+        aktualizujCenu()
+
+        if (!zaskrtnuto) {
+            Snackbar.make(binding.root, getString(R.string.snackbar_removed, checkBox.text), Snackbar.LENGTH_LONG)
+                .setAction(getString(R.string.snackbar_undo)) {
+                    checkBox.isChecked = true   // vrátí zaškrtnutí zpátky
+                }
+                .show()
         }
     }
 
