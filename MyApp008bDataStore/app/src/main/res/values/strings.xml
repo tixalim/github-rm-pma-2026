@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyApp008bDataStore</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="nastaveni">Nastavení</string>
+    <string name="dashboard_nadpis">Můj hráčský profil</string>
+    <string name="nastaveni_nadpis">Nastavení profilu</string>
+    <string name="jmeno_hint">Zadej herní přezdívku</string>
+    <string name="hardcore_switch">Hardcore režim</string>
+    <string name="ulozit">Uložit (DataStore)</string>
+    <string name="klikac_popis">Zkus klikat i během ukládání:</string>
+    <string name="klikac">Klikni na mě</string>
+    <string name="pocet_kliku">Kliknuto: %d×</string>
+    <string name="jmeno_vypis">Přezdívka: %s</string>
+    <string name="jmeno_nevyplneno">zatím nevyplněno</string>
+    <string name="hardcore_zapnuty">Hardcore režim: zapnutý</string>
+    <string name="hardcore_vypnuty">Hardcore režim: vypnutý</string>
+    <string name="ulozeno_snackbar">Uloženo přes DataStore</string>
+    <string name="zpet">Zpět</string>
+    <string name="vraceno_zpet">Vráceno zpět</string>
+</resources>
